@@ -138,7 +138,7 @@ for (let i = 0; i < starWarsCharacters.length; i++) {
   Ad ognuna di queste proprietà assegna come valore un array vuoto.
 */
 
-let eyeColor = { blue: [], yellow: [], brown: [], red: [], blue_gray: [] };
+let eyeColor = { blue: [], yellow: [], brown: [], red: [], "blue-gray": [] };
 
 /* ESERCIZIO 5
   Utilizza uno switch statement per inserire uno ad uno gli oggetti dei personaggi di "starWarsCharacters" negli array relativi al colore degli occhi precedentemente creati.
@@ -146,23 +146,23 @@ let eyeColor = { blue: [], yellow: [], brown: [], red: [], blue_gray: [] };
 */
 
 for (let i = 0; i < starWarsCharacters.length; i++) {
-  let cName = starWarsCharacters[i];
+  let character = starWarsCharacters[i];
 
-  switch (cName.eye_color) {
+  switch (character.eye_color) {
     case "blue":
-      eyeColor.blue.push(cName);
+      eyeColor.blue.push(character);
       break;
     case "yellow":
-      eyeColor.yellow.push(cName);
+      eyeColor.yellow.push(character);
       break;
     case "brown":
-      eyeColor.brown.push(cName);
+      eyeColor.brown.push(character);
       break;
     case "red":
-      eyeColor.red.push(cName);
+      eyeColor.red.push(character);
       break;
     case "blue-gray":
-      eyeColor.blue_gray.push(cName);
+      eyeColor["blue-gray"].push(character);
   }
 }
 console.log(eyeColor);
@@ -170,6 +170,14 @@ console.log(eyeColor);
 /* ESERCIZIO 6
   Usa un while loop per calcolare la massa totale dell'equipaggio. Salvala in una variabile chiamata "crewMass".
 */
+let index = 0;
+let crewMass = 0;
+while (index < starWarsCharacters.length) {
+  const character = starWarsCharacters[index];
+  crewMass += character.mass;
+  index++;
+}
+console.log(crewMass);
 
 /* ESERCIZIO 7
   Crea uno if/else statement per rivelare la tipologia di carico, utilizzando la massa totale, di un'ipotetica astronave contenente i personaggi dell'array "starWarsCharacters".
@@ -183,14 +191,13 @@ console.log(eyeColor);
   Una volta fatto, modifica la massa di qualche elemento dell'equipaggio e vedi se riesci ad ottenere un messaggio diverso.
 */
 
-/*
 if (crewMass < 500) {
   console.log("Ship is under loaded");
 } else if (crewMass > 500 && crewMass < 700) {
   console.log("Ship is half loaded");
 } else if (crewMass > 700 && crewMass < 900) {
   console.log("Warning: Load is over 700");
-} else if (crewMass > 900 && crewMass < 100) {
+} else if (crewMass > 900 && crewMass < 1000) {
   console.log("Critical Load: Over 900");
 } else if (crewMass > 1000) {
   console.log("DANGER! OVERLOAD ALERT: escape from ship now!");
